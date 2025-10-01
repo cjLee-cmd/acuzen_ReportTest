@@ -363,7 +363,7 @@ function renderTree(entries) {
   const rows = entries.map(({ tag, value }) => {
     const safeTag = escapeHtml(tag);
     const safeVal = escapeHtml(value);
-    return `<li><span class="tag" data-tag="${safeTag}">'${safeTag}'</span>:'<span class="val">${safeVal}</span>'</li>`;
+    return `<li><span class="tag" data-tag="${safeTag}">${safeTag}</span>:<span class="val">${safeVal}</span></li>`;
   });
   return `<div class="tree"><ul class="kv-list">${rows.join('')}</ul></div>`;
 }
