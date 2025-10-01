@@ -1,0 +1,10 @@
+69:        <drugstructuredosageunit>003</drugstructuredosageunit>
+135:        <drugstructuredosageunit>003</drugstructuredosageunit>
+197:        <drugstructuredosageunit>003</drugstructuredosageunit>
+250:        <drugstructuredosageunit>003</drugstructuredosageunit>
+309:        <drugstructuredosageunit>003</drugstructuredosageunit>
+604:        <drugstructuredosageunit>002</drugstructuredosageunit>
+672:        <drugstructuredosageunit>003</drugstructuredosageunit>
+992:        <drugstructuredosageunit>003</drugstructuredosageunit>
+1069:        <drugstructuredosageunit>003</drugstructuredosageunit>
+1087:        <drugstructuredosageunit>003</drugstructuredosageunit>

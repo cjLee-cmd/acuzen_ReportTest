@@ -1,0 +1,10 @@
+20:    <reporttype>1</reporttype>
+97:    <reporttype>1</reporttype>
+161:    <reporttype>1</reporttype>
+214:    <reporttype>1</reporttype>
+271:    <reporttype>1</reporttype>
+333:    <reporttype>1</reporttype>
+455:    <reporttype>1</reporttype>
+501:    <reporttype>1</reporttype>
+564:    <reporttype>1</reporttype>
+633:    <reporttype>1</reporttype>

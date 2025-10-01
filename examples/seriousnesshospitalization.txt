@@ -1,0 +1,10 @@
+24:    <seriousnesshospitalization>1</seriousnesshospitalization>
+101:    <seriousnesshospitalization>2</seriousnesshospitalization>
+165:    <seriousnesshospitalization>2</seriousnesshospitalization>
+218:    <seriousnesshospitalization>1</seriousnesshospitalization>
+275:    <seriousnesshospitalization>2</seriousnesshospitalization>
+337:    <seriousnesshospitalization>2</seriousnesshospitalization>
+459:    <seriousnesshospitalization>2</seriousnesshospitalization>
+505:    <seriousnesshospitalization>1</seriousnesshospitalization>
+568:    <seriousnesshospitalization>2</seriousnesshospitalization>
+637:    <seriousnesshospitalization>2</seriousnesshospitalization>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FAERS XML Viewer (Local)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>FAERS XML Viewer</h1>
+      <p class="subtitle">로컬 XML(예: XML/1_ADR25Q2.xml)을 선택하여 구조를 탐색하세요.</p>
+    </header>
+
+    <section class="controls">
+      <div class="file-input">
+        <label for="file">XML 파일 선택</label>
+        <input id="file" type="file" accept=".xml,.XML" />
+        <div id="dropzone" class="dropzone">여기로 파일을 드래그 앤 드롭</div>
+      </div>
+      <div class="options">
+        <label>샘플 스캔 크기(MB)
+          <input id="sampleMB" type="number" min="1" max="128" value="2" />
+        </label>
+        <label>청크 크기(KB)
+          <input id="chunkKB" type="number" min="128" max="8192" value="512" />
+        </label>
+      </div>
+      <div class="buttons">
+        <button id="btnHeader">헤더 확인</button>
+        <button id="btnFirstReport">첫 safetyreport 추출</button>
+        <button id="btnScanTags">태그 빈도 스캔(샘플)</button>
+        <button id="btnScanTagsFull">태그 빈도 스캔(전체)</button>
+        <button id="btnReset" class="secondary">초기화</button>
+        <button id="btnCancel" class="danger" title="진행 중 작업 취소" disabled>취소</button>
+      </div>
+      <div class="progress-wrap">
+        <div id="statusText" class="status">대기 중</div>
+        <div class="progress-row">
+          <progress id="progress" max="100" value="0"></progress>
+          <span id="progressPct" class="pct">0%</span>
+        </div>
+        <div id="statsLine" class="stats">처리 0 / 0 • 속도 0 MB/s • 경과 00:00 • 예상 00:00</div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="panel">
+        <h2>Header / Meta</h2>
+        <pre id="headerOut" class="mono"></pre>
+
+        <h2>Tag Counts</h2>
+        <div id="tagBars" class="bars"></div>
+        <pre id="tagOut" class="mono small"></pre>
+      </div>
+      <div class="panel">
+        <h2>First safetyreport</h2>
+        <div class="report-nav">
+          <button id="prevReport" class="secondary" disabled>◀</button>
+          <span id="reportCounter">0 / 0</span>
+          <button id="nextReport" class="secondary" disabled>▶</button>
+        </div>
+        <div id="reportTree" class="tree"></div>
+        <details>
+          <summary>Raw XML 보기</summary>
+          <pre id="reportRaw" class="mono small"></pre>
+        </details>
+      </div>
+      <div class="panel info">
+        <h2>Tag Info</h2>
+        <div id="tagInfo"><span class="muted">트리/막대의 태그를 클릭하면 설명이 표시됩니다.</span></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>오프라인 전용 · 브라우저에서 로컬 파일만 읽습니다. 대용량 파일은 샘플 스캔을 추천합니다.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+  </html>

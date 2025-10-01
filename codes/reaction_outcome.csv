@@ -1,0 +1,7 @@
+code,label_ko,label_en,notes
+1,회복/해결,Recovered/Resolved,
+2,회복중/해결중,Recovering/Resolving,
+3,미회복/미해결,Not Recovered/Not Resolved,
+4,후유증 동반 회복,Recovered with Sequelae,
+5,사망,Fatal,
+6,미상,Unknown,

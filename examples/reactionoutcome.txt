@@ -1,0 +1,10 @@
+1057:        <reactionoutcome>1</reactionoutcome>
+1062:        <reactionoutcome>1</reactionoutcome>
+1190:        <reactionoutcome>3</reactionoutcome>
+1195:        <reactionoutcome>6</reactionoutcome>
+1200:        <reactionoutcome>6</reactionoutcome>
+1383:        <reactionoutcome>6</reactionoutcome>
+1388:        <reactionoutcome>6</reactionoutcome>
+1393:        <reactionoutcome>6</reactionoutcome>
+1454:        <reactionoutcome>6</reactionoutcome>
+1517:        <reactionoutcome>6</reactionoutcome>

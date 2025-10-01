@@ -1,0 +1,10 @@
+74:        <drugadministrationroute>048</drugadministrationroute>
+140:        <drugadministrationroute>060</drugadministrationroute>
+198:        <drugadministrationroute>058</drugadministrationroute>
+255:        <drugadministrationroute>048</drugadministrationroute>
+314:        <drugadministrationroute>048</drugadministrationroute>
+371:        <drugadministrationroute>058</drugadministrationroute>
+542:        <drugadministrationroute>048</drugadministrationroute>
+605:        <drugadministrationroute>058</drugadministrationroute>
+677:        <drugadministrationroute>048</drugadministrationroute>
+742:        <drugadministrationroute>047</drugadministrationroute>

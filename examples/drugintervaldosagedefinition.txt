@@ -1,0 +1,10 @@
+72:        <drugintervaldosagedefinition>804</drugintervaldosagedefinition>
+138:        <drugintervaldosagedefinition>804</drugintervaldosagedefinition>
+253:        <drugintervaldosagedefinition>804</drugintervaldosagedefinition>
+312:        <drugintervaldosagedefinition>804</drugintervaldosagedefinition>
+540:        <drugintervaldosagedefinition>804</drugintervaldosagedefinition>
+675:        <drugintervaldosagedefinition>804</drugintervaldosagedefinition>
+740:        <drugintervaldosagedefinition>804</drugintervaldosagedefinition>
+995:        <drugintervaldosagedefinition>804</drugintervaldosagedefinition>
+1072:        <drugintervaldosagedefinition>804</drugintervaldosagedefinition>
+1090:        <drugintervaldosagedefinition>804</drugintervaldosagedefinition>

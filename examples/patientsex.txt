@@ -1,0 +1,10 @@
+48:      <patientsex>1</patientsex>
+126:      <patientsex>1</patientsex>
+188:      <patientsex>2</patientsex>
+241:      <patientsex>1</patientsex>
+300:      <patientsex>2</patientsex>
+362:      <patientsex>1</patientsex>
+530:      <patientsex>2</patientsex>
+594:      <patientsex>2</patientsex>
+662:      <patientsex>1</patientsex>
+725:      <patientsex>2</patientsex>

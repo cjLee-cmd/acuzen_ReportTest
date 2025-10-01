@@ -1,0 +1,10 @@
+67:        <medicinalproduct>TADALAFIL</medicinalproduct>
+84:        <medicinalproduct>REMODULIN</medicinalproduct>
+133:        <medicinalproduct>ONDANSETRON</medicinalproduct>
+195:        <medicinalproduct>SKYRIZI</medicinalproduct>
+248:        <medicinalproduct>TACROLIMUS</medicinalproduct>
+307:        <medicinalproduct>VYNDAMAX</medicinalproduct>
+369:        <medicinalproduct>PROLIA</medicinalproduct>
+382:        <medicinalproduct>ELIQUIS</medicinalproduct>
+389:        <medicinalproduct>METOPROLOL</medicinalproduct>
+396:        <medicinalproduct>ATORVSTATIN</medicinalproduct>

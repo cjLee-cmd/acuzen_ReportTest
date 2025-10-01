@@ -1,0 +1,10 @@
+21:    <serious>1</serious>
+98:    <serious>2</serious>
+162:    <serious>2</serious>
+215:    <serious>1</serious>
+272:    <serious>1</serious>
+334:    <serious>1</serious>
+456:    <serious>2</serious>
+502:    <serious>1</serious>
+565:    <serious>2</serious>
+634:    <serious>1</serious>

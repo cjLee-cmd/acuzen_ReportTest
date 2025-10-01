@@ -1,0 +1,10 @@
+51:        <reactionmeddrapt>Influenza</reactionmeddrapt>
+55:        <reactionmeddrapt>Loss of consciousness</reactionmeddrapt>
+59:        <reactionmeddrapt>Head injury</reactionmeddrapt>
+63:        <reactionmeddrapt>Cerebral haemorrhage</reactionmeddrapt>
+129:        <reactionmeddrapt>Death</reactionmeddrapt>
+191:        <reactionmeddrapt>Therapeutic product effect decreased</reactionmeddrapt>
+244:        <reactionmeddrapt>COVID-19</reactionmeddrapt>
+303:        <reactionmeddrapt>Death</reactionmeddrapt>
+365:        <reactionmeddrapt>Death</reactionmeddrapt>
+484:        <reactionmeddrapt>Surgery</reactionmeddrapt>
