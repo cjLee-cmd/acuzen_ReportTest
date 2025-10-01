@@ -21,6 +21,11 @@ const btnScanTags = qs('#btnScanTags');
 const btnScanTagsFull = qs('#btnScanTagsFull');
 const btnReset = qs('#btnReset');
 const btnCancel = qs('#btnCancel');
+const searchInput = qs('#searchInput');
+const btnSearch = qs('#btnSearch');
+const searchResults = qs('#searchResults');
+const searchProgress = qs('#searchProgress');
+const searchStatus = qs('#searchStatus');
 
 let currentFile = null;
 const progressEl = qs('#progress');
@@ -655,4 +660,149 @@ tagBars.addEventListener('click', (e) => {
   if (!el) return;
   const t = el.getAttribute('data-tag');
   if (t) showTagInfo(t);
+});
+
+// 검색 기능
+async function searchInFile(query, maxResults = 50) {
+  if (!currentFile) {
+    alert('먼저 XML 파일을 선택하세요.');
+    return [];
+  }
+  if (!query || query.length < 2) {
+    alert('최소 2자 이상 입력하세요.');
+    return [];
+  }
+
+  const results = [];
+  const chunkSize = 512 * 1024; // 512KB 청크
+  const contextLength = 100; // 전후 컨텍스트 길이
+  let offset = 0;
+  let overlapBuffer = '';
+
+  // 검색 진행 상황 초기화
+  searchProgress.value = 0;
+  searchStatus.textContent = '검색 중...';
+
+  setBusy(true);
+  startProgress('검색 중...');
+
+  try {
+    while (offset < currentFile.size) {
+      if (_opCanceled) break;
+
+      const chunk = await readChunk(currentFile, offset, chunkSize);
+      const searchText = overlapBuffer + chunk;
+
+      // 검색어 찾기 (대소문자 구분 없음)
+      const lowerQuery = query.toLowerCase();
+      const lowerText = searchText.toLowerCase();
+      let index = 0;
+
+      while ((index = lowerText.indexOf(lowerQuery, index)) !== -1) {
+        const actualOffset = offset - overlapBuffer.length + index;
+        const start = Math.max(0, index - contextLength);
+        const end = Math.min(searchText.length, index + query.length + contextLength);
+        const context = searchText.substring(start, end);
+
+        results.push({
+          offset: actualOffset,
+          context: context,
+          matchIndex: index - start
+        });
+
+        if (results.length >= maxResults) break;
+        index += query.length;
+      }
+
+      if (results.length >= maxResults) break;
+
+      // 다음 청크로
+      offset += chunkSize;
+      overlapBuffer = chunk.slice(-query.length * 2); // 경계 처리
+
+      const progress = Math.min(100, (offset / currentFile.size) * 100);
+      updateProgress(progress, offset, currentFile.size);
+
+      // 검색 프로그레스 바 업데이트
+      searchProgress.value = progress;
+      searchStatus.textContent = `검색 중... ${Math.round(progress)}%`;
+
+      // UI 업데이트를 위한 짧은 지연
+      await new Promise(resolve => setTimeout(resolve, 0));
+    }
+
+    finishProgress(_opCanceled ? 'canceled' : 'ok');
+
+    // 검색 완료 상태 업데이트
+    searchProgress.value = 100;
+    if (results.length > 0) {
+      searchStatus.textContent = `완료: ${results.length}개 발견`;
+    } else {
+      searchStatus.textContent = '결과 없음';
+    }
+
+    return results;
+  } catch (e) {
+    finishProgress('error');
+    searchStatus.textContent = '검색 실패';
+    throw e;
+  } finally {
+    setBusy(false);
+  }
+}
+
+function displaySearchResults(results, query) {
+  if (results.length === 0) {
+    searchResults.innerHTML = '<div class="muted">검색 결과가 없습니다.</div>';
+    return;
+  }
+
+  const html = results.map((r, i) => {
+    const before = escapeHtml(r.context.substring(0, r.matchIndex));
+    const match = escapeHtml(r.context.substring(r.matchIndex, r.matchIndex + query.length));
+    const after = escapeHtml(r.context.substring(r.matchIndex + query.length));
+
+    return `<div class="search-result-item" data-offset="${r.offset}">
+      <div><strong>#${i + 1}</strong> - 위치: ${r.offset.toLocaleString()}</div>
+      <div class="context">${before}<span class="match">${match}</span>${after}</div>
+    </div>`;
+  }).join('');
+
+  searchResults.innerHTML = `<div class="muted">${results.length}개 결과 발견</div>${html}`;
+}
+
+btnSearch.addEventListener('click', async () => {
+  const query = searchInput.value.trim();
+  if (!query) return;
+
+  try {
+    const results = await searchInFile(query);
+    displaySearchResults(results, query);
+  } catch (e) {
+    searchResults.innerHTML = `<div class="muted">검색 실패: ${e.message}</div>`;
+  }
+});
+
+// Enter 키로 검색
+searchInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    btnSearch.click();
+  }
+});
+
+// 검색 결과 클릭 시 해당 위치의 컨텍스트 표시
+searchResults.addEventListener('click', async (e) => {
+  const item = e.target.closest('.search-result-item');
+  if (!item) return;
+
+  const offset = parseInt(item.dataset.offset);
+  try {
+    const contextSize = 2000;
+    const start = Math.max(0, offset - 500);
+    const text = await readChunk(currentFile, start, contextSize);
+
+    headerOut.textContent = `검색 결과 위치: ${offset.toLocaleString()}\n\n${text}`;
+  } catch (e) {
+    headerOut.textContent = `컨텍스트 로드 실패: ${e.message}`;
+  }
 });

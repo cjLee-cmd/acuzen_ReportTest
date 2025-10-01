@@ -15,7 +15,7 @@
     <section class="controls">
       <div class="file-input">
         <label for="file">XML 파일 선택</label>
-        <input id="file" type="file" accept=".xml,.XML" />
+        <input id="file" type="file" accept=".xml,.XML" multiple />
         <div id="dropzone" class="dropzone">여기로 파일을 드래그 앤 드롭</div>
       </div>
       <div class="options">
@@ -33,6 +33,17 @@
         <button id="btnScanTagsFull">태그 빈도 스캔(전체)</button>
         <button id="btnReset" class="secondary">초기화</button>
         <button id="btnCancel" class="danger" title="진행 중 작업 취소" disabled>취소</button>
+      </div>
+      <div class="search-box">
+        <div>
+          <input id="searchInput" type="text" placeholder="원본 XML에서 텍스트 검색..." />
+          <button id="btnSearch">검색</button>
+        </div>
+        <div class="search-progress">
+          <progress id="searchProgress" max="100" value="0"></progress>
+          <span id="searchStatus" class="search-status">대기 중</span>
+        </div>
+        <div id="searchResults" class="search-results"></div>
       </div>
       <div class="progress-wrap">
         <div id="statusText" class="status">대기 중</div>
